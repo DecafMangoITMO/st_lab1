@@ -72,6 +72,12 @@ public class ArctanSeriesTest {
         assertThrows(IllegalArgumentException.class, () -> ArctanSeries.compute(infX, N));
     }
 
+    @ParameterizedTest
+    @ValueSource(doubles = {-1.1d, 1.1d})
+    public void checkXOutOfBounds(double x) {
+        assertThrows(IllegalArgumentException.class, () -> ArctanSeries.compute(x, N));
+    }
+
     @Test
     public void checkNegativeN() {
         double x = 0;
